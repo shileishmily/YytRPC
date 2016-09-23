@@ -12,8 +12,8 @@ public class ChatRecord {
     private int userId;
     private String content;
     private Date createTime;
-    private int type;
-    private int pushType;
+    private int type;//聊天内容类型：扩展使用
+    private int pushType;//是否已推送：0-未推送，1-已推送
 
     public int getId() {
         return id;

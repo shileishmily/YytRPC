@@ -1,4 +1,4 @@
-rootProject.name = 'PrintRPC'
+rootProject.name = 'YytRPC'
 
 include 'common'
 
