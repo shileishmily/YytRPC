@@ -1,4 +1,4 @@
-package com.yyt.print.info.service;
+package com.yyt.print.info.dao;
 
 import com.youguu.core.util.PageHolder;
 import com.yyt.print.fragment.pojo.FragmentHome;
@@ -6,10 +6,9 @@ import com.yyt.print.fragment.pojo.FragmentHome;
 import java.util.HashMap;
 
 /**
- * Created by SomeBody on 2016/9/23.
+ * Created by SomeBody on 2016/9/25.
  */
-public interface IFragmentHomeService {
-
+public interface IFragmentHomeDAO {
     public int saveFragmentHome(FragmentHome fragmentHome);
 
     public int updateFragmentHome(FragmentHome fragmentHome);

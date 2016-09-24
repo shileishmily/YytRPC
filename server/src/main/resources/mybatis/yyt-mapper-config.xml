@@ -37,5 +37,12 @@
 		<mapper resource="mybatis/friend/friend_apply_mapper.xml" />
 		<mapper resource="mybatis/friend/chat_session_mapper.xml" />
 		<mapper resource="mybatis/friend/chat_record_mapper.xml" />
+
+		<mapper resource="mybatis/ad/ad_mapper.xml" />
+		<mapper resource="mybatis/ad/ad_category_mapper.xml" />
+
+		<mapper resource="mybatis/info/fragment_home_mapper.xml" />
+		<mapper resource="mybatis/info/info_category_mapper.xml" />
+		<mapper resource="mybatis/info/info_content_mapper.xml" />
 	</mappers>
 </configuration>

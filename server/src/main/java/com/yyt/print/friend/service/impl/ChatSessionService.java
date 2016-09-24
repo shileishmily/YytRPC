@@ -1,25 +1,25 @@
-package com.yyt.print.friend.dao.impl;
+package com.yyt.print.friend.service.impl;
 
-import com.yyt.print.base.YytBaseDAO;
 import com.yyt.print.friend.dao.IChatSessionDAO;
 import com.yyt.print.friend.pojo.ChatSession;
-import org.springframework.stereotype.Repository;
+import com.yyt.print.friend.service.IChatSessionService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * Created by SomeBody on 2016/9/24.
  */
-@Repository
-public class ChatSessionDAO extends YytBaseDAO<ChatSession> implements IChatSessionDAO {
+@Service("chatSessionService")
+public class ChatSessionService implements IChatSessionService {
+
+    @Resource
+    private IChatSessionDAO chatSessionDAO;
+
     @Override
     public int saveChatSession(ChatSession chatSession) {
         return 0;
-    }
-
-    @Override
-    public ChatSession getChatSession(int userId, int friendId) {
-        return null;
     }
 
     @Override

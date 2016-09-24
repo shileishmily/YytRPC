@@ -8,10 +8,10 @@ import java.util.Date;
  */
 public class FragmentHome {
     private int	id;
-    private int	rank;
-    private int	type;
-    private String	content;
-    private int	used;
+    private int	rank;//排序，数字越小排序越靠前
+    private int	type;//类型，1 类别区（展示样式为）；2 一行一图区域；3 一行两图区域；4 一行三图区域
+    private String	content;//'内容，格式：[{"img":"...","url":"..."},{"img":"...","url":"..."}]
+    private int	used;//是否有效，0 有效；-1 无效
     private Date createTime;
 
     public int getId() {

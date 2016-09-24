@@ -1,17 +1,22 @@
-package com.yyt.print.friend.dao.impl;
+package com.yyt.print.friend.service.impl;
 
-import com.yyt.print.base.YytBaseDAO;
 import com.yyt.print.friend.dao.IFriendApplyDAO;
 import com.yyt.print.friend.pojo.FriendApply;
-import org.springframework.stereotype.Repository;
+import com.yyt.print.friend.service.IFriendApplyService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by SomeBody on 2016/9/23.
+ * Created by SomeBody on 2016/9/24.
  */
-@Repository
-public class FriendApplyDAO extends YytBaseDAO<FriendApply> implements IFriendApplyDAO {
+@Service("friendApplyService")
+public class FriendApplyService implements IFriendApplyService {
+
+    @Resource
+    private IFriendApplyDAO friendApplyDAO;
+
     @Override
     public int saveFriendApply(FriendApply friendApply) {
         return 0;

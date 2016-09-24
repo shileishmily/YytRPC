@@ -1,17 +1,21 @@
-package com.yyt.print.friend.dao.impl;
+package com.yyt.print.friend.service.impl;
 
-import com.yyt.print.base.YytBaseDAO;
 import com.yyt.print.friend.dao.IChatRecordDAO;
 import com.yyt.print.friend.pojo.ChatRecord;
-import org.springframework.stereotype.Repository;
+import com.yyt.print.friend.service.IChatRecordService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * Created by SomeBody on 2016/9/24.
  */
-@Repository
-public class ChatRecordDAO extends YytBaseDAO<ChatRecord> implements IChatRecordDAO {
+@Service("chatRecordService")
+public class ChatRecordService implements IChatRecordService {
+
+    @Resource
+    private IChatRecordDAO chatRecordDAO;
 
     @Override
     public List<ChatRecord> queryChartRecordList(int sessionId, int position, int size) {
@@ -20,16 +24,6 @@ public class ChatRecordDAO extends YytBaseDAO<ChatRecord> implements IChatRecord
 
     @Override
     public int sendMsg(int userId, int msgId, String msgContent, int type) {
-        return 0;
-    }
-
-    @Override
-    public ChatRecord getChatRecord(int id) {
-        return null;
-    }
-
-    @Override
-    public int updatePushType(int id, int pushType) {
         return 0;
     }
 }
