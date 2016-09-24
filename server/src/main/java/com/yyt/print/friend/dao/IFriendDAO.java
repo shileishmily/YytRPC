@@ -1,15 +1,13 @@
-package com.yyt.print.friend.service;
+package com.yyt.print.friend.dao;
 
 import com.yyt.print.friend.pojo.Friend;
 
 import java.util.List;
 
 /**
- * 好友关系
  * Created by SomeBody on 2016/9/23.
  */
-public interface IFriendService {
-
+public interface IFriendDAO {
     /**
      * 保存好友关系
      * @param userId 用户ID

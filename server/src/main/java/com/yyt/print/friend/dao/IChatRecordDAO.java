@@ -1,14 +1,13 @@
-package com.yyt.print.friend.service;
+package com.yyt.print.friend.dao;
 
 import com.yyt.print.friend.pojo.ChatRecord;
 
 import java.util.List;
 
 /**
- * Created by SomeBody on 2016/9/23.
+ * Created by SomeBody on 2016/9/24.
  */
-public interface IChatRecordService {
-
+public interface IChatRecordDAO {
     /**
      * 根据会话ID查询聊天记录
      * @param sessionId
@@ -28,4 +27,18 @@ public interface IChatRecordService {
      */
     public int sendMsg(int userId, int msgId, String msgContent, int type);
 
+    /**
+     * 查询消息记录
+     * @param id
+     * @return
+     */
+    public ChatRecord getChatRecord(int id);
+
+    /**
+     * 修改消息推送状态
+     * @param id
+     * @param pushType
+     * @return
+     */
+    public int updatePushType(int id, int pushType);
 }

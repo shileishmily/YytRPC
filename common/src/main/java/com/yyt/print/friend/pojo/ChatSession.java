@@ -13,7 +13,7 @@ public class ChatSession {
     private Date createTime;
     private Date lastTime;
     private String lastContent;
-    private int lastrUid;
+    private int lastUid;
 
     public int getId() {
         return id;
@@ -63,11 +63,11 @@ public class ChatSession {
         this.lastContent = lastContent;
     }
 
-    public int getLastrUid() {
-        return lastrUid;
+    public int getLastUid() {
+        return lastUid;
     }
 
-    public void setLastrUid(int lastrUid) {
-        this.lastrUid = lastrUid;
+    public void setLastUid(int lastUid) {
+        this.lastUid = lastUid;
     }
 }
