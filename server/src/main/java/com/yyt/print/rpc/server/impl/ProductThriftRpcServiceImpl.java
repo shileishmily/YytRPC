@@ -1,6 +1,6 @@
 package com.yyt.print.rpc.server.impl;
 
-import com.yyt.print.thrift.gen.ProductThriftRpcService;
+import com.yyt.print.rpc.thrift.gen.ProductThriftRpcService;
 import org.springframework.stereotype.Service;
 
 /**

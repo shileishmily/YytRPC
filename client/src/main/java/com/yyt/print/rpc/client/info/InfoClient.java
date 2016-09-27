@@ -1,16 +1,14 @@
-package com.yyt.print.rpc.server.impl;
+package com.yyt.print.rpc.client.info;
 
 import com.yyt.print.rpc.thrift.gen.InfoThriftRpcService;
 import org.apache.thrift.TException;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 /**
- * Created by SomeBody on 2016/9/23.
+ * Created by SomeBody on 2016/9/27.
  */
-@Service("infoThriftRpcService")
-public class InfoThriftRpcServiceImpl implements InfoThriftRpcService.Iface {
+public class InfoClient implements InfoThriftRpcService.Iface {
     @Override
     public int saveFragmentHome(String fragmentHome) throws TException {
         return 0;

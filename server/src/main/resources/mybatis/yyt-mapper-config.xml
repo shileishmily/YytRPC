@@ -44,5 +44,10 @@
 		<mapper resource="mybatis/info/fragment_home_mapper.xml" />
 		<mapper resource="mybatis/info/info_category_mapper.xml" />
 		<mapper resource="mybatis/info/info_content_mapper.xml" />
+
+		<mapper resource="mybatis/user/user_mapper.xml" />
+		<mapper resource="mybatis/user/user_buyer_mapper.xml" />
+		<mapper resource="mybatis/user/user_seller_mapper.xml" />
+		<mapper resource="mybatis/user/user_third_mapper.xml" />
 	</mappers>
 </configuration>

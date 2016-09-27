@@ -1,5 +1,8 @@
+namespace java com.yyt.print.rpc.thrift.gen
+/**
+* 好友聊天Service
+**/
 service FriendChatThriftRpcService {
-
     /**
      * 保存好友关系
      * @param userId 用户ID
@@ -102,7 +105,53 @@ service FriendChatThriftRpcService {
 
 
 service InfoThriftRpcService {
+    i32 saveFragmentHome(1:string fragmentHome);
 
+    i32 updateFragmentHome(2:string fragmentHome);
+
+    i32 deleteFragmentHome(1:i32 id);
+
+    string getFragmentHome(1:i32 id);
+
+    string queryFragmentHomeByPage(1:map<string, string> paramMap, 2:i32 pageIndex, 3:i32 pageSize);
+
+
+
+    i32 saveInfoCategory(1:string category);
+
+    i32 updateInfoCategory(1:string category);
+
+    /**
+     * 删除资讯类别时，是否要删除该类别下子类别及资讯，谨慎！
+     * @param id
+     * @return
+     */
+    i32 deleteInfoCategory(1:i32 id);
+
+    string getInfoCategory(1:i32 id);
+
+    /**
+     * 查询子类别
+     * @param parentId
+     * @return
+     */
+    string findInfoCategoryByParentId(1:i32 parentId);
+
+    string queryInfoCategoryByPage(1:map<string, string> paramMap, 2:i32 pageIndex, 3:i32 pageSize);
+
+
+
+    i32 saveInfoContent(1:string infoContent);
+
+    i32 deleteInfoContent(1:i32 id);
+
+    i32 updateInfoContent(1:string infoContent);
+
+    string getInfoContent(1:i32 id);
+
+    string queryInfoContentByPage(1:map<string, string> paramMap, 2:i32 pageIndex, 3:i32 pageSize);
+
+    string queryInfoContentList(1:string title, 2:string des, 3:i32 id, 4:i32 limit);
 }
 
 
@@ -110,10 +159,67 @@ service ProductThriftRpcService {
 
 }
 
+/**
+* 广告service
+**/
 service AdThriftRpcService {
+    i32 saveAd(1:string ad);
 
+    i32 updateAd(1:string ad);
+
+    i32 deleteAd(1:i32 id);
+
+    string getAd(1:i32 id);
+
+    string queryAdByPage(1:map<string, string> paramMap, 2:i32 pageIndex, 3:i32 pageSize);
+
+    i32 saveAdCategory(1:string category);
+
+    i32 updateAdCategory(2:string category);
+
+    i32 deleteAdCategory(1:i32 id);
+
+    string getAdCategory(2:i32 id);
+
+    string queryAdCategoryByPage(1:map<string, string> paramMap, 2:i32 pageIndex, 3:i32 pageSize);
 }
 
+/**
+* 用户Service
+**/
 service UserThriftRpcService {
+    i32 saveUser(1:string user);
 
+    string getUser(1:i32 userId);
+
+    /**
+     * 用户ID，用户名不能更改
+     * @param user
+     * @return
+     */
+    i32 updateUser(1:string user);
+
+    string getUserList(1:list<i32> userIdList);
+
+    string getUserMap(1:list<i32> userIdList);
+
+
+
+    i32 saveUserBuyer(1:string userBuyer);
+
+    string getUserBuyer(1:i32 userId);
+
+    i32 updateUserBuyer(1:string userBuyer);
+
+
+    i32 saveUserSeller(1:string userSeller);
+
+    string getUserSeller(1:i32 userId);
+
+    i32 updateUserSeller(1:string userSeller);
+
+
+    i32 saveUserThirdBind(1:string thirdBind);
+
+    string getUserThirdBind(1:string thirdId, 2:i32 type);
 }

@@ -9,5 +9,5 @@ public interface IUserThirdBindService {
 
     public int saveUserThirdBind(UserThirdBind thirdBind);
 
-    public int getUserThirdBind(String thirdId, int type);
+    public UserThirdBind getUserThirdBind(String thirdId, int type);
 }

@@ -1,6 +1,6 @@
 package com.yyt.print.rpc.server.impl;
 
-import com.yyt.print.thrift.gen.FriendChatThriftRpcService;
+import com.yyt.print.rpc.thrift.gen.FriendChatThriftRpcService;
 import org.apache.thrift.TException;
 import org.springframework.stereotype.Service;
 

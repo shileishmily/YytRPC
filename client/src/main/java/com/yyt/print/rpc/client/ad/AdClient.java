@@ -1,16 +1,14 @@
-package com.yyt.print.rpc.server.impl;
+package com.yyt.print.rpc.client.ad;
 
 import com.yyt.print.rpc.thrift.gen.AdThriftRpcService;
 import org.apache.thrift.TException;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 /**
- * Created by SomeBody on 2016/9/23.
+ * Created by SomeBody on 2016/9/27.
  */
-@Service("adThriftRpcService")
-public class AdThriftRpcServiceImpl implements AdThriftRpcService.Iface {
+public class AdClient implements AdThriftRpcService.Iface {
     @Override
     public int saveAd(String ad) throws TException {
         return 0;

@@ -1,16 +1,14 @@
-package com.yyt.print.rpc.server.impl;
+package com.yyt.print.rpc.client.user;
 
 import com.yyt.print.rpc.thrift.gen.UserThriftRpcService;
 import org.apache.thrift.TException;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
- * Created by SomeBody on 2016/9/23.
+ * Created by SomeBody on 2016/9/27.
  */
-@Service("userThriftRpcService")
-public class UserThriftRpcServiceImpl implements UserThriftRpcService.Iface {
+public class UserClient implements UserThriftRpcService.Iface {
     @Override
     public int saveUser(String user) throws TException {
         return 0;

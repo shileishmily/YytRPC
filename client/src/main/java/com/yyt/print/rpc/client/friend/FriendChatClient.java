@@ -6,7 +6,7 @@ import com.youguu.core.util.RPCServiceClient;
 import com.youguu.core.util.rpc.multipex.RPCMultiplexConnection;
 import com.youguu.core.util.rpc.multipex.RPCMultiplexPool;
 import com.yyt.print.rpc.common.Constants;
-import com.yyt.print.thrift.gen.FriendChatThriftRpcService;
+import com.yyt.print.rpc.thrift.gen.FriendChatThriftRpcService;
 import org.apache.thrift.TException;
 
 /**
