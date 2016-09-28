@@ -4,7 +4,7 @@
     <resultMap type="Ad" id="AdResultMap">
         <result property="id" column="id"/>
         <result property="adType" column="ad_type"/>
-        <result property="img" column="img"/>
+        <result property="img" column="img" typeHandler="com.yyt.print.base.MyBlobTypeHandler"/>
         <result property="des" column="des"/>
         <result property="url" column="url"/>
         <result property="used" column="used"/>
@@ -61,7 +61,7 @@
         <include refid="sql_count" />
         <include refid="sql_where" />
     </select>
-    <select id="findByParams" parameterType="java.util.HashMap" resultType="AdResultMap">
+    <select id="findByParams" parameterType="java.util.HashMap" resultMap="AdResultMap">
         <include refid="sql_select" />
         <include refid="sql_where" />
         <include refid="sql_order" />

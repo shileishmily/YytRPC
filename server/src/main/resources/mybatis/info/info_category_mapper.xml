@@ -64,7 +64,7 @@
         <include refid="sql_count" />
         <include refid="sql_where" />
     </select>
-    <select id="findByParams" parameterType="java.util.HashMap" resultType="InfoCategoryResultMap">
+    <select id="findByParams" parameterType="java.util.HashMap" resultMap="InfoCategoryResultMap">
         <include refid="sql_select" />
         <include refid="sql_where" />
         <include refid="sql_order" />

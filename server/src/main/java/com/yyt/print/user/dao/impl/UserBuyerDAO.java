@@ -12,12 +12,12 @@ import org.springframework.stereotype.Repository;
 public class UserBuyerDAO extends YytBaseDAO<UserBuyer> implements IUserBuyerDAO {
     @Override
     public int saveUserBuyer(UserBuyer userBuyer) {
-        return 0;
+        return this.insert(userBuyer);
     }
 
     @Override
     public UserBuyer getUserBuyer(int userId) {
-        return null;
+        return this.findUniqueBy("findUserBuyerByUserId", userId);
     }
 
     @Override

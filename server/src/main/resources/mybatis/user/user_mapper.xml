@@ -37,7 +37,7 @@
         select user_id,create_time,update_time,user_name,password,nick_name,email,phone
         from user
         where user_id in
-        <foreach item="item" index="index" collection="ids" open="(" separator="," close=")">
+        <foreach item="item" index="index" collection="userIdList" open="(" separator="," close=")">
             #{item}
         </foreach>
     </select>

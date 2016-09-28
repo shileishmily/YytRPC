@@ -4,10 +4,10 @@
     <resultMap type="UserSeller" id="UserSellerResultMap">
         <result property="userId" column="user_id"/>
         <result property="cardNumber" column="card_number"/>
-        <result property="cardFPhoto" column="card_f_photo"/>
-        <result property="cardBPhoto" column="card_b_photo"/>
-        <result property="userCardPhoto" column="user_card_photo"/>
-        <result property="licencePhone" column="licence_phone"/>
+        <result property="cardFPhoto" column="card_f_photo" typeHandler="com.yyt.print.base.MyBlobTypeHandler"/>
+        <result property="cardBPhoto" column="card_b_photo" typeHandler="com.yyt.print.base.MyBlobTypeHandler"/>
+        <result property="userCardPhoto" column="user_card_photo" typeHandler="com.yyt.print.base.MyBlobTypeHandler"/>
+        <result property="licencePhone" column="licence_phone" typeHandler="com.yyt.print.base.MyBlobTypeHandler"/>
         <result property="status" column="status"/>
         <result property="msg" column="msg"/>
         <result property="createTime" column="create_time"/>

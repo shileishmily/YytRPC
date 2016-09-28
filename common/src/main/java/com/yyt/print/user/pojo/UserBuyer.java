@@ -1,6 +1,5 @@
 package com.yyt.print.user.pojo;
 
-import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -10,9 +9,9 @@ import java.util.Date;
 public class UserBuyer {
     private int userId;
     private String cardNumber;
-    private Blob cardFPhoto;
-    private Blob cardBPhoto;
-    private Blob userCardPhoto;
+    private String cardFPhoto;
+    private String cardBPhoto;
+    private String userCardPhoto;
     private int status;
     private String msg;
     private Date createTime;
@@ -34,27 +33,27 @@ public class UserBuyer {
         this.cardNumber = cardNumber;
     }
 
-    public Blob getCardFPhoto() {
+    public String getCardFPhoto() {
         return cardFPhoto;
     }
 
-    public void setCardFPhoto(Blob cardFPhoto) {
+    public void setCardFPhoto(String cardFPhoto) {
         this.cardFPhoto = cardFPhoto;
     }
 
-    public Blob getCardBPhoto() {
+    public String getCardBPhoto() {
         return cardBPhoto;
     }
 
-    public void setCardBPhoto(Blob cardBPhoto) {
+    public void setCardBPhoto(String cardBPhoto) {
         this.cardBPhoto = cardBPhoto;
     }
 
-    public Blob getUserCardPhoto() {
+    public String getUserCardPhoto() {
         return userCardPhoto;
     }
 
-    public void setUserCardPhoto(Blob userCardPhoto) {
+    public void setUserCardPhoto(String userCardPhoto) {
         this.userCardPhoto = userCardPhoto;
     }
 
@@ -88,5 +87,20 @@ public class UserBuyer {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "UserBuyer{" +
+                "userId=" + userId +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", cardFPhoto=" + cardFPhoto +
+                ", cardBPhoto=" + cardBPhoto +
+                ", userCardPhoto=" + userCardPhoto +
+                ", status=" + status +
+                ", msg='" + msg + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

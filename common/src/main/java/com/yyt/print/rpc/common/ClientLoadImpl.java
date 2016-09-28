@@ -16,9 +16,4 @@ public class ClientLoadImpl implements IClientLoad {
         return map;
     }
 
-    @Override
-    public Map<String, Class<?>> loadAsyncClient() {
-        return null;
-    }
-
 }
