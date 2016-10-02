@@ -38,7 +38,9 @@ public class UserBuyerServiceTest extends BaseTestClass {
 
     @Test
     public void testUpdateUserBuyer() throws Exception {
-
+        UserBuyer buyer = userBuyerService.getUserBuyer(3);
+        buyer.setCardNumber("230123198811229088");
+        userBuyerService.updateUserBuyer(buyer);
     }
 
 

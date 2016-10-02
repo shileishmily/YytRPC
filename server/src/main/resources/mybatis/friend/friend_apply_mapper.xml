@@ -32,7 +32,7 @@
     <select id="queryFriendApply" parameterType="int" resultMap="FriendApplyResultMap">
 		select id,user_id,friend_id,create_time,update_time,status,msg
 		from friend_apply
-		where user_id=#{userId}
+		where user_id=#{userId} and status=0
 	</select>
 
 </mapper>

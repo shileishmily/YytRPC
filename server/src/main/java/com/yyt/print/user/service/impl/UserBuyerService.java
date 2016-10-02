@@ -27,6 +27,6 @@ public class UserBuyerService implements IUserBuyerService {
 
     @Override
     public int updateUserBuyer(UserBuyer userBuyer) {
-        return 0;
+        return userBuyerDAO.updateUserBuyer(userBuyer);
     }
 }

@@ -20,12 +20,21 @@ public interface IChatRecordService {
 
     /**
      * 发送消息
-     * @param userId
+     * @param userId 消息发送人ID
+     * @param toUid 消息接收人ID
      * @param msgId 消息ID，重新发送时使用
      * @param msgContent 消息内容
      * @param type 消息内容类型
      * @return 返回消息ID
      */
-    public int sendMsg(int userId, int msgId, String msgContent, int type);
+    public int sendMsg(int userId, int toUid, int msgId, String msgContent, int type);
+
+    /**
+     * 修改消息推送状态
+     * @param id
+     * @param pushType
+     * @return
+     */
+    public int updatePushType(int id, int pushType);
 
 }

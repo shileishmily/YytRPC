@@ -13,28 +13,29 @@ import java.util.HashMap;
  */
 @Repository
 public class AdCategoryDAO extends YytBaseDAO<AdCategory> implements IAdCategoryDAO {
+
     @Override
     public int saveAdCategory(AdCategory category) {
-        return 0;
+        return this.insert(category);
     }
 
     @Override
     public int updateAdCategory(AdCategory category) {
-        return 0;
+        return this.update(category);
     }
 
     @Override
-    public int deleteAdCategory(int id) {
-        return 0;
+    public int deleteAdCategory(String id) {
+        return this.delete(id);
     }
 
     @Override
-    public AdCategory getAdCategory(int id) {
-        return null;
+    public AdCategory getAdCategory(String id) {
+        return this.get(id);
     }
 
     @Override
     public PageHolder<AdCategory> queryAdCategoryByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return this.pagedQuery("findByParams", paramMap, pageIndex, pageSize);
     }
 }

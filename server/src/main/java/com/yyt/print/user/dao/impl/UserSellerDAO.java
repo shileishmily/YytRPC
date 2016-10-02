@@ -13,16 +13,16 @@ public class UserSellerDAO extends YytBaseDAO<UserSeller> implements IUserSeller
 
     @Override
     public int saveUserSeller(UserSeller userSeller) {
-        return 0;
+        return this.insert(userSeller);
     }
 
     @Override
     public UserSeller getUserSeller(int userId) {
-        return null;
+        return this.findUniqueBy("findUserBuyerByUserId", userId);
     }
 
     @Override
     public int updateUserSeller(UserSeller userSeller) {
-        return 0;
+        return this.update(userSeller);
     }
 }

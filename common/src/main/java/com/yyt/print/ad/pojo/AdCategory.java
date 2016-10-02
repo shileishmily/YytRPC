@@ -34,4 +34,13 @@ public class AdCategory {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "AdCategory{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", createTime=" + createTime +
+                '}';
+    }
 }

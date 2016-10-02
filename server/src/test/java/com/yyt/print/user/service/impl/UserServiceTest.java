@@ -5,7 +5,9 @@ import com.yyt.print.user.pojo.User;
 import com.yyt.print.user.service.IUserService;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class UserServiceTest extends BaseTestClass {
 
@@ -26,17 +28,30 @@ public class UserServiceTest extends BaseTestClass {
 
     @Test
     public void testGetUser() throws Exception {
-
+        User user = userService.getUser(3);
+        System.out.println(user);
     }
 
     @Test
     public void testUpdateUser() throws Exception {
+        User user = userService.getUser(3);
+        user.setNickName("Leo");
 
+        userService.updateUser(user);
     }
 
     @Test
     public void testGetUserList() throws Exception {
-
+        List<Integer> idList = new ArrayList<>();
+        idList.add(1);
+        idList.add(2);
+        idList.add(3);
+        List<User> list = userService.getUserList(idList);
+        if(list !=null && list.size()>0){
+            for(User user : list){
+                System.out.println(user);
+            }
+        }
     }
 
     @Test

@@ -22,6 +22,6 @@ public class UserBuyerDAO extends YytBaseDAO<UserBuyer> implements IUserBuyerDAO
 
     @Override
     public int updateUserBuyer(UserBuyer userBuyer) {
-        return 0;
+        return this.update(userBuyer);
     }
 }

@@ -19,21 +19,21 @@ public class FriendApplyService implements IFriendApplyService {
 
     @Override
     public int saveFriendApply(FriendApply friendApply) {
-        return 0;
+        return friendApplyDAO.saveFriendApply(friendApply);
     }
 
     @Override
     public List<FriendApply> queryFriendApply(int userId) {
-        return null;
+        return friendApplyDAO.queryFriendApply(userId);
     }
 
     @Override
     public int agreeFriendApply(int applyId, int userId, int friendId) {
-        return 0;
+        return friendApplyDAO.agreeFriendApply(applyId, userId, friendId);
     }
 
     @Override
     public int refuseFriendApply(int applyId, int userId, int friendId) {
-        return 0;
+        return friendApplyDAO.refuseFriendApply(applyId, userId, friendId);
     }
 }

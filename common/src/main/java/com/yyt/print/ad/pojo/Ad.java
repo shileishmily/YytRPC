@@ -1,6 +1,5 @@
 package com.yyt.print.ad.pojo;
 
-import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -10,7 +9,7 @@ import java.util.Date;
 public class Ad {
     private int id;
     private String adType;
-    private Blob img;
+    private String img;//base64编码
     private String des;
     private String url;
     private int used;
@@ -32,11 +31,12 @@ public class Ad {
         this.adType = adType;
     }
 
-    public Blob getImg() {
+
+    public String getImg() {
         return img;
     }
 
-    public void setImg(Blob img) {
+    public void setImg(String img) {
         this.img = img;
     }
 

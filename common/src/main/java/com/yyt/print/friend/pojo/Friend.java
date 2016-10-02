@@ -43,4 +43,14 @@ public class Friend {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Friend{" +
+                "userId=" + userId +
+                ", friendId=" + friendId +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

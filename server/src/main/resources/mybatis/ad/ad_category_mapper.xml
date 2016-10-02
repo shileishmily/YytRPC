@@ -9,23 +9,20 @@
 
     <insert id="insert" parameterType="AdCategory">
         insert into ad_category
-        (name,create_time)
+        (id,name,create_time)
         VALUES
-        (#{name},#{createTime})
-        <selectKey resultType="int" keyProperty="id">
-            select LAST_INSERT_ID() AS id
-        </selectKey>
+        (#{id},#{name},#{createTime})
     </insert>
 
     <update id="update" parameterType="AdCategory">
         update ad_category set name=#{name} where id=#{id}
     </update>
 
-    <delete id="delete" parameterType="int">
+    <delete id="delete" parameterType="String">
 		delete from ad_category where id=#{id}
 	</delete>
 
-    <select id="select" parameterType="int" resultMap="AdCategoryResultMap">
+    <select id="select" parameterType="String" resultMap="AdCategoryResultMap">
 		select id,name,create_time
 		from ad_category
 		where id=#{id}

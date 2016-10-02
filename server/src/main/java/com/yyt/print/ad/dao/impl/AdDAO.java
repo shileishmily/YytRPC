@@ -15,26 +15,26 @@ import java.util.HashMap;
 public class AdDAO extends YytBaseDAO<Ad> implements IAdDAO {
     @Override
     public int saveAd(Ad ad) {
-        return 0;
+        return this.insert(ad);
     }
 
     @Override
     public int updateAd(Ad ad) {
-        return 0;
+        return this.update(ad);
     }
 
     @Override
     public int deleteAd(int id) {
-        return 0;
+        return this.delete(id);
     }
 
     @Override
     public Ad getAd(int id) {
-        return null;
+        return this.get(id);
     }
 
     @Override
     public PageHolder<Ad> queryAdByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return this.pagedQuery("findByParams", paramMap, pageIndex, pageSize);
     }
 }
