@@ -4,7 +4,7 @@
     <resultMap type="Ad" id="AdResultMap">
         <result property="id" column="id"/>
         <result property="adType" column="ad_type"/>
-        <result property="img" column="img" typeHandler="com.yyt.print.base.MyBlobTypeHandler"/>
+        <result property="img" column="img" typeHandler="com.yyt.print.base.BlobTypeHandler"/>
         <result property="des" column="des"/>
         <result property="url" column="url"/>
         <result property="used" column="used"/>

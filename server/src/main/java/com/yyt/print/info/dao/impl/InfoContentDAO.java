@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by SomeBody on 2016/9/25.
@@ -16,31 +17,36 @@ import java.util.List;
 public class InfoContentDAO extends YytBaseDAO<InfoContent> implements IInfoContentDAO {
     @Override
     public int saveInfoContent(InfoContent infoContent) {
-        return 0;
+        return this.insert(infoContent);
     }
 
     @Override
     public int deleteInfoContent(int id) {
-        return 0;
+        return this.delete(id);
     }
 
     @Override
     public int updateInfoContent(InfoContent infoContent) {
-        return 0;
+        return this.update(infoContent);
     }
 
     @Override
     public InfoContent getInfoContent(int id) {
-        return null;
+        return this.get(id);
     }
 
     @Override
     public PageHolder<InfoContent> queryInfoContentByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return this.pagedQuery("findByParams", paramMap, pageIndex, pageSize);
     }
 
     @Override
     public List<InfoContent> queryInfoContentList(String title, String des, int id, int limit) {
-        return null;
+        Map<String, Object> map = new HashMap<>();
+        map.put("title", title);
+        map.put("des", des);
+        map.put("id", id);
+        map.put("limit", limit);
+        return this.findBy("queryInfoContentList", map);
     }
 }

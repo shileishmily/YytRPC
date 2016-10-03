@@ -10,9 +10,9 @@ import java.io.UnsupportedEncodingException;
 import java.sql.*;
 
 
-public class MyBlobTypeHandler extends BaseTypeHandler<String> {
+public class BlobTypeHandler extends BaseTypeHandler<String> {
 
-    private static final Log LOGGER = LogFactory.getLog(MyBlobTypeHandler.class);
+    private static final Log LOGGER = LogFactory.getLog(BlobTypeHandler.class);
     private static final String DEFAULT_CHARSET = "utf-8";
 
     @Override

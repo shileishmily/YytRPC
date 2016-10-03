@@ -5,7 +5,7 @@
         <result property="id" column="id"/>
         <result property="rank" column="rank"/>
         <result property="type" column="type"/>
-        <result property="content" column="content"/>
+        <result property="content" column="content" typeHandler="com.yyt.print.base.ListTypeHandler"/>
         <result property="used" column="used"/>
         <result property="createTime" column="create_time"/>
     </resultMap>

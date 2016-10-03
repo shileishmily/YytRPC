@@ -57,7 +57,7 @@
         </where>
     </sql>
     <sql id="sql_order">
-        ORDER BY rank ASC
+        ORDER BY create_time ASC
     </sql>
 
     <select id="findByParams_count" parameterType="java.util.HashMap" resultType="int">

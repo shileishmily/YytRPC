@@ -16,31 +16,31 @@ import java.util.List;
 public class InfoCategoryDAO extends YytBaseDAO<InfoCategory> implements IInfoCategoryDAO {
     @Override
     public int saveInfoCategory(InfoCategory category) {
-        return 0;
+        return this.insert(category);
     }
 
     @Override
     public int updateInfoCategory(InfoCategory category) {
-        return 0;
+        return this.update(category);
     }
 
     @Override
     public int deleteInfoCategory(int id) {
-        return 0;
+        return this.delete(id);
     }
 
     @Override
     public InfoCategory getInfoCategory(int id) {
-        return null;
+        return this.get(id);
     }
 
     @Override
     public List<InfoCategory> findInfoCategoryByParentId(int parentId) {
-        return null;
+        return this.findBy("findInfoCategoryByParentId", parentId);
     }
 
     @Override
     public PageHolder<InfoCategory> queryInfoCategoryByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return this.pagedQuery("findByParams", paramMap, pageIndex, pageSize);
     }
 }

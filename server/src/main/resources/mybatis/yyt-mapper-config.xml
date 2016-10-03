@@ -26,7 +26,11 @@
 		<typeAlias alias="UserBuyer" type="com.yyt.print.user.pojo.UserBuyer" />
 		<typeAlias alias="UserThirdBind" type="com.yyt.print.user.pojo.UserThirdBind" />
 	</typeAliases>
-	
+
+	<typeHandlers>
+		<typeHandler handler="com.yyt.print.base.ListTypeHandler"/>
+	</typeHandlers>
+
 	<plugins>
 		<plugin interceptor="com.youguu.core.dao.StatementInterceptor" />
 		<plugin interceptor="com.youguu.core.dao.ResultSetInterceptor" />
