@@ -19,26 +19,26 @@ public class AdCategoryService implements IAdCategoryService {
 
     @Override
     public int saveAdCategory(AdCategory category) {
-        return 0;
+        return adCategoryDAO.saveAdCategory(category);
     }
 
     @Override
     public int updateAdCategory(AdCategory category) {
-        return 0;
+        return adCategoryDAO.updateAdCategory(category);
     }
 
     @Override
-    public int deleteAdCategory(int id) {
-        return 0;
+    public int deleteAdCategory(String id) {
+        return adCategoryDAO.deleteAdCategory(id);
     }
 
     @Override
-    public AdCategory getAdCategory(int id) {
-        return null;
+    public AdCategory getAdCategory(String id) {
+        return adCategoryDAO.getAdCategory(id);
     }
 
     @Override
     public PageHolder<AdCategory> queryAdCategoryByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return adCategoryDAO.queryAdCategoryByPage(paramMap, pageIndex, pageSize);
     }
 }

@@ -19,26 +19,26 @@ public class FragmentHomeService implements IFragmentHomeService {
 
     @Override
     public int saveFragmentHome(FragmentHome fragmentHome) {
-        return 0;
+        return fragmentHomeDAO.saveFragmentHome(fragmentHome);
     }
 
     @Override
     public int updateFragmentHome(FragmentHome fragmentHome) {
-        return 0;
+        return fragmentHomeDAO.updateFragmentHome(fragmentHome);
     }
 
     @Override
     public int deleteFragmentHome(int id) {
-        return 0;
+        return fragmentHomeDAO.deleteFragmentHome(id);
     }
 
     @Override
     public FragmentHome getFragmentHome(int id) {
-        return null;
+        return fragmentHomeDAO.getFragmentHome(id);
     }
 
     @Override
     public PageHolder<FragmentHome> queryFragmentHomeByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return fragmentHomeDAO.queryFragmentHomeByPage(paramMap, pageIndex, pageSize);
     }
 }

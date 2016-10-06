@@ -57,14 +57,14 @@
         </where>
     </sql>
     <sql id="sql_order">
-        ORDER BY rank ASC
+        ORDER BY create_time ASC
     </sql>
 
     <select id="findByParams_count" parameterType="java.util.HashMap" resultType="int">
         <include refid="sql_count" />
         <include refid="sql_where" />
     </select>
-    <select id="findByParams" parameterType="java.util.HashMap" resultType="InfoCategoryResultMap">
+    <select id="findByParams" parameterType="java.util.HashMap" resultMap="InfoCategoryResultMap">
         <include refid="sql_select" />
         <include refid="sql_where" />
         <include refid="sql_order" />

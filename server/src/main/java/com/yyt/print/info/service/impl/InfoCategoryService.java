@@ -20,31 +20,31 @@ public class InfoCategoryService implements IInfoCategoryService {
 
     @Override
     public int saveInfoCategory(InfoCategory category) {
-        return 0;
+        return infoCategoryDAO.saveInfoCategory(category);
     }
 
     @Override
     public int updateInfoCategory(InfoCategory category) {
-        return 0;
+        return infoCategoryDAO.updateInfoCategory(category);
     }
 
     @Override
     public int deleteInfoCategory(int id) {
-        return 0;
+        return infoCategoryDAO.deleteInfoCategory(id);
     }
 
     @Override
     public InfoCategory getInfoCategory(int id) {
-        return null;
+        return infoCategoryDAO.getInfoCategory(id);
     }
 
     @Override
     public List<InfoCategory> findInfoCategoryByParentId(int parentId) {
-        return null;
+        return infoCategoryDAO.findInfoCategoryByParentId(parentId);
     }
 
     @Override
     public PageHolder<InfoCategory> queryInfoCategoryByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return infoCategoryDAO.queryInfoCategoryByPage(paramMap, pageIndex, pageSize);
     }
 }

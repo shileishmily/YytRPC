@@ -26,7 +26,11 @@
 		<typeAlias alias="UserBuyer" type="com.yyt.print.user.pojo.UserBuyer" />
 		<typeAlias alias="UserThirdBind" type="com.yyt.print.user.pojo.UserThirdBind" />
 	</typeAliases>
-	
+
+	<typeHandlers>
+		<typeHandler handler="com.yyt.print.base.ListTypeHandler"/>
+	</typeHandlers>
+
 	<plugins>
 		<plugin interceptor="com.youguu.core.dao.StatementInterceptor" />
 		<plugin interceptor="com.youguu.core.dao.ResultSetInterceptor" />
@@ -44,5 +48,10 @@
 		<mapper resource="mybatis/info/fragment_home_mapper.xml" />
 		<mapper resource="mybatis/info/info_category_mapper.xml" />
 		<mapper resource="mybatis/info/info_content_mapper.xml" />
+
+		<mapper resource="mybatis/user/user_mapper.xml" />
+		<mapper resource="mybatis/user/user_buyer_mapper.xml" />
+		<mapper resource="mybatis/user/user_seller_mapper.xml" />
+		<mapper resource="mybatis/user/user_third_mapper.xml" />
 	</mappers>
 </configuration>

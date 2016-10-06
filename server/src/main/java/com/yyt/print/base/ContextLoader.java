@@ -20,14 +20,14 @@ import javax.sql.DataSource;
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class ContextLoader extends DataSourceLoader {
 
-	public DataSource getDataSource(String selector){
-		return loadMulti(selector);
+	public DataSource getDataSource(String selector, String beanName){
+		return load(selector, beanName);
 	}
-	
+
 	@Bean
 	public SqlSessionFactory yytSessionFactory() throws Exception {
 		SqlSessionFactoryBean bean=new SqlSessionFactoryBean();
-		bean.setDataSource(getDataSource("yyt"));
+		bean.setDataSource(getDataSource("yyt", "yytDs"));
 		DefaultResourceLoader dc=new DefaultResourceLoader();
 		bean.setConfigLocation(dc.getResource("classpath:mybatis/yyt-mapper-config.xml"));
 		return bean.getObject();
@@ -36,7 +36,7 @@ public class ContextLoader extends DataSourceLoader {
 	@Bean(name="yytTx")
 	public DataSourceTransactionManager yytTx() {
 		DataSourceTransactionManager transactionManager = new MultiDataSourceTransactionManager();
-		transactionManager.setDataSource(getDataSource("yyt"));
+		transactionManager.setDataSource(getDataSource("yyt", "yytDs"));
 		return transactionManager;
 	}
 	

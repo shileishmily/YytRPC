@@ -2,6 +2,7 @@ package com.yyt.print.friend.dao;
 
 import com.yyt.print.friend.pojo.ChatSession;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,4 +33,14 @@ public interface IChatSessionDAO {
      * @return
      */
     public List<ChatSession> queryChatSessionList(int userId, int position, int size);
+
+    /**
+     * 更新最后一次聊天内容
+     * @param sessionId
+     * @param lastUid
+     * @param lastContent
+     * @param lastTime
+     * @return
+     */
+    public int updateLastChat(int sessionId, int lastUid, String lastContent, Date lastTime);
 }

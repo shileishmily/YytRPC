@@ -24,6 +24,6 @@ public class ChatSessionService implements IChatSessionService {
 
     @Override
     public List<ChatSession> queryChatSessionList(int userId, int position, int size) {
-        return null;
+        return chatSessionDAO.queryChatSessionList(userId, position, size);
     }
 }

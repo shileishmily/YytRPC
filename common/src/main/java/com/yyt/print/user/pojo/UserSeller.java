@@ -1,6 +1,5 @@
 package com.yyt.print.user.pojo;
 
-import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -10,10 +9,10 @@ import java.util.Date;
 public class UserSeller {
     private int userId;
     private String cardNumber;
-    private Blob cardFPhoto;
-    private Blob cardBPhoto;
-    private Blob userCardPhoto;
-    private Blob licencePhone;
+    private String cardFPhoto;
+    private String cardBPhoto;
+    private String userCardPhoto;
+    private String licencePhone;
     private int status;
     private String msg;
     private Date createTime;
@@ -35,35 +34,35 @@ public class UserSeller {
         this.cardNumber = cardNumber;
     }
 
-    public Blob getCardFPhoto() {
+    public String getCardFPhoto() {
         return cardFPhoto;
     }
 
-    public void setCardFPhoto(Blob cardFPhoto) {
+    public void setCardFPhoto(String cardFPhoto) {
         this.cardFPhoto = cardFPhoto;
     }
 
-    public Blob getCardBPhoto() {
+    public String getCardBPhoto() {
         return cardBPhoto;
     }
 
-    public void setCardBPhoto(Blob cardBPhoto) {
+    public void setCardBPhoto(String cardBPhoto) {
         this.cardBPhoto = cardBPhoto;
     }
 
-    public Blob getUserCardPhoto() {
+    public String getUserCardPhoto() {
         return userCardPhoto;
     }
 
-    public void setUserCardPhoto(Blob userCardPhoto) {
+    public void setUserCardPhoto(String userCardPhoto) {
         this.userCardPhoto = userCardPhoto;
     }
 
-    public Blob getLicencePhone() {
+    public String getLicencePhone() {
         return licencePhone;
     }
 
-    public void setLicencePhone(Blob licencePhone) {
+    public void setLicencePhone(String licencePhone) {
         this.licencePhone = licencePhone;
     }
 

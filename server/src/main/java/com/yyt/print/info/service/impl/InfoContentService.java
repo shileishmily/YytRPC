@@ -12,7 +12,8 @@ import java.util.List;
 
 /**
  * Created by SomeBody on 2016/9/25.
- */@Service("infoContentService")
+ */
+@Service("infoContentService")
 public class InfoContentService implements IInfoContentService {
 
     @Resource
@@ -20,31 +21,31 @@ public class InfoContentService implements IInfoContentService {
 
     @Override
     public int saveInfoContent(InfoContent infoContent) {
-        return 0;
+        return infoContentDAO.saveInfoContent(infoContent);
     }
 
     @Override
     public int deleteInfoContent(int id) {
-        return 0;
+        return infoContentDAO.deleteInfoContent(id);
     }
 
     @Override
     public int updateInfoContent(InfoContent infoContent) {
-        return 0;
+        return infoContentDAO.updateInfoContent(infoContent);
     }
 
     @Override
     public InfoContent getInfoContent(int id) {
-        return null;
+        return infoContentDAO.getInfoContent(id);
     }
 
     @Override
     public PageHolder<InfoContent> queryInfoContentByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return infoContentDAO.queryInfoContentByPage(paramMap, pageIndex, pageSize);
     }
 
     @Override
     public List<InfoContent> queryInfoContentList(String title, String des, int id, int limit) {
-        return null;
+        return infoContentDAO.queryInfoContentList(title, des, id, limit);
     }
 }

@@ -9,7 +9,7 @@
         <result property="title" column="title"/>
         <result property="type" column="type"/>
         <result property="des" column="des"/>
-        <result property="photo" column="photo"/>
+        <result property="photo" column="photo" typeHandler="com.yyt.print.base.BlobTypeHandler"/>
         <result property="content" column="content"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
@@ -42,20 +42,19 @@
 	</select>
 
     <select id="queryInfoContentList" parameterType="Map" resultMap="InfoContentResultMap">
-        <![CDATA[
-            select id,weight,user_id,class_id,title,type,des,photo,content,create_time,update_time
-            from info_content
-            <where>
-                <if test="title != null and title !=''">
-                    AND title = #{title}
-                </if>
-                <if test="des != null and des !=''">
-                    AND des = #{des}
-                </if>
-                AND id<#{id}
-            </where>
-            order by id desc limit #{limit}
-        ]]>
+        select id,weight,user_id,class_id,title,type,des,photo,content,create_time,update_time
+        from info_content
+        <where>
+            <if test="title != null and title !=''">
+                AND title = #{title}
+            </if>
+            <if test="des != null and des !=''">
+                AND des = #{des}
+            </if>
+            <![CDATA[AND id<#{id} ]]>
+        </where>
+        order by id desc limit #{limit}
+
     </select>
 
     <sql id="sql_count">
@@ -65,7 +64,7 @@
         select id,weight,user_id,class_id,title,type,des,photo,content,create_time,update_time
     </sql>
     <sql id="sql_where">
-        from ad
+        from info_content
         <where>
             <if test="userId != null and userId !=''">
                 AND user_id = #{userId}
@@ -86,7 +85,7 @@
         <include refid="sql_count" />
         <include refid="sql_where" />
     </select>
-    <select id="findByParams" parameterType="java.util.HashMap" resultType="InfoContentResultMap">
+    <select id="findByParams" parameterType="java.util.HashMap" resultMap="InfoContentResultMap">
         <include refid="sql_select" />
         <include refid="sql_where" />
         <include refid="sql_order" />

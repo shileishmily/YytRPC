@@ -42,4 +42,14 @@ public class UserThirdBind {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "UserThirdBind{" +
+                "userId=" + userId +
+                ", thirdId='" + thirdId + '\'' +
+                ", type=" + type +
+                ", createTime=" + createTime +
+                '}';
+    }
 }

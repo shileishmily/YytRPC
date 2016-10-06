@@ -15,26 +15,26 @@ import java.util.HashMap;
 public class FragmentHomeDAO extends YytBaseDAO<FragmentHome> implements IFragmentHomeDAO {
     @Override
     public int saveFragmentHome(FragmentHome fragmentHome) {
-        return 0;
+        return this.insert(fragmentHome);
     }
 
     @Override
     public int updateFragmentHome(FragmentHome fragmentHome) {
-        return 0;
+        return this.update(fragmentHome);
     }
 
     @Override
     public int deleteFragmentHome(int id) {
-        return 0;
+        return this.delete(id);
     }
 
     @Override
     public FragmentHome getFragmentHome(int id) {
-        return null;
+        return this.get(id);
     }
 
     @Override
     public PageHolder<FragmentHome> queryFragmentHomeByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return this.pagedQuery("findByParams", paramMap, pageIndex, pageSize);
     }
 }

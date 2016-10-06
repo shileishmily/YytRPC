@@ -1,7 +1,6 @@
 package com.yyt.print.rpc.common;
 
-import com.yyt.print.thrift.gen.AdThriftRpcService;
-import com.yyt.print.thrift.gen.FriendChatThriftRpcService;
+import com.yyt.print.rpc.thrift.gen.*;
 
 
 public enum ClientMultiplexProp {
@@ -10,6 +9,18 @@ public enum ClientMultiplexProp {
             FriendChatThriftRpcService.Client.class,
             FriendChatThriftRpcService.Processor.class,
             FriendChatThriftRpcService.Iface.class),
+    InfoThriftRpcService("InfoThriftRpcService",
+            InfoThriftRpcService.Client.class,
+            InfoThriftRpcService.Processor.class,
+            InfoThriftRpcService.Iface.class),
+    ProductThriftRpcService("ProductThriftRpcService",
+            ProductThriftRpcService.Client.class,
+            ProductThriftRpcService.Processor.class,
+            ProductThriftRpcService.Iface.class),
+    UserThriftRpcService("UserThriftRpcService",
+            UserThriftRpcService.Client.class,
+            UserThriftRpcService.Processor.class,
+            UserThriftRpcService.Iface.class),
     AdThriftRpcService("AdThriftRpcService",
             AdThriftRpcService.Client.class,
             AdThriftRpcService.Processor.class,

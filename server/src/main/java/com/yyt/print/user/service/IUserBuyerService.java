@@ -8,7 +8,7 @@ import com.yyt.print.user.pojo.UserBuyer;
 public interface IUserBuyerService {
     public int saveUserBuyer(UserBuyer userBuyer);
 
-    public int getUserBuyer(int userId);
+    public UserBuyer getUserBuyer(int userId);
 
     public int updateUserBuyer(UserBuyer userBuyer);
 }

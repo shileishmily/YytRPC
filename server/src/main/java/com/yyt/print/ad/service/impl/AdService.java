@@ -19,26 +19,26 @@ public class AdService implements IAdService {
 
     @Override
     public int saveAd(Ad ad) {
-        return 0;
+        return adDAO.saveAd(ad);
     }
 
     @Override
     public int updateAd(Ad ad) {
-        return 0;
+        return adDAO.updateAd(ad);
     }
 
     @Override
     public int deleteAd(int id) {
-        return 0;
+        return adDAO.deleteAd(id);
     }
 
     @Override
     public Ad getAd(int id) {
-        return null;
+        return adDAO.getAd(id);
     }
 
     @Override
     public PageHolder<Ad> queryAdByPage(HashMap<String, Object> paramMap, int pageIndex, int pageSize) {
-        return null;
+        return adDAO.queryAdByPage(paramMap, pageIndex, pageSize);
     }
 }

@@ -5,7 +5,7 @@
         <result property="id" column="id"/>
         <result property="rank" column="rank"/>
         <result property="type" column="type"/>
-        <result property="content" column="content"/>
+        <result property="content" column="content" typeHandler="com.yyt.print.base.ListTypeHandler"/>
         <result property="used" column="used"/>
         <result property="createTime" column="create_time"/>
     </resultMap>
@@ -31,7 +31,7 @@
 
     <select id="select" parameterType="int" resultMap="FragmentHomeResultMap">
 		select id,rank,type,content,used,create_time
-		from ad
+		from fragment_home
 		where id=#{id}
 	</select>
 
@@ -42,7 +42,7 @@
         select id,rank,type,content,used,create_time
     </sql>
     <sql id="sql_where">
-        from ad
+        from fragment_home
         <where>
             <if test="type != null and type !=''">
                 AND type = #{type}
@@ -60,7 +60,7 @@
         <include refid="sql_count" />
         <include refid="sql_where" />
     </select>
-    <select id="findByParams" parameterType="java.util.HashMap" resultType="FragmentHomeResultMap">
+    <select id="findByParams" parameterType="java.util.HashMap" resultMap="FragmentHomeResultMap">
         <include refid="sql_select" />
         <include refid="sql_where" />
         <include refid="sql_order" />

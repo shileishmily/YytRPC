@@ -19,21 +19,21 @@ public class FriendService implements IFriendService {
 
     @Override
     public int saveFriend(int userId, int friendId) {
-        return 0;
+        return friendDAO.saveFriend(userId, friendId);
     }
 
     @Override
     public int deleteFriend(int userId, int friendId) {
-        return 0;
+        return friendDAO.deleteFriend(userId, friendId);
     }
 
     @Override
     public Friend getFriend(int userId, int friendId) {
-        return null;
+        return friendDAO.getFriend(userId, friendId);
     }
 
     @Override
     public List<Friend> queryMyFriend(int userId) {
-        return null;
+        return friendDAO.queryMyFriend(userId);
     }
 }

@@ -1,6 +1,5 @@
 package com.yyt.print.info.pojo;
 
-import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -15,7 +14,7 @@ public class InfoContent {
     private String title;
     private int type;
     private String des;
-    private Blob photo;
+    private String photo;
     private String content;
     private Date createTime;
     private Date updateTime;
@@ -76,11 +75,11 @@ public class InfoContent {
         this.des = des;
     }
 
-    public Blob getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Blob photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

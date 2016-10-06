@@ -25,7 +25,7 @@ public interface IChatRecordDAO {
      * @param type 消息内容类型
      * @return 返回消息ID
      */
-    public int sendMsg(int userId, int msgId, String msgContent, int type);
+    public int sendMsg(int sessionId, int userId, int msgId, String msgContent, int type);
 
     /**
      * 查询消息记录
