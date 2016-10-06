@@ -15,6 +15,6 @@ public class ChatRecordServiceTest extends BaseTestClass {
 
     @Test
     public void testSendMsg() throws Exception {
-        chatRecordService.sendMsg(3298, 224, -1, "哈喽", 1);
+        chatRecordService.sendMsg(224, 3298, -1, "中华人民共和国成立了！", 1);
     }
 }

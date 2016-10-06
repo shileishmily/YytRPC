@@ -170,11 +170,12 @@ public class FriendChatThriftRpcService {
      * @return 返回消息ID
      * 
      * @param userId
+     * @param toUid
      * @param msgId
      * @param msgContent
      * @param type
      */
-    public int sendMsg(int userId, int msgId, String msgContent, int type) throws org.apache.thrift.TException;
+    public int sendMsg(int userId, int toUid, int msgId, String msgContent, int type) throws org.apache.thrift.TException;
 
   }
 
@@ -202,7 +203,7 @@ public class FriendChatThriftRpcService {
 
     public void queryChartRecordList(int sessionId, int position, int size, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
-    public void sendMsg(int userId, int msgId, String msgContent, int type, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void sendMsg(int userId, int toUid, int msgId, String msgContent, int type, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -490,16 +491,17 @@ public class FriendChatThriftRpcService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "queryChartRecordList failed: unknown result");
     }
 
-    public int sendMsg(int userId, int msgId, String msgContent, int type) throws org.apache.thrift.TException
+    public int sendMsg(int userId, int toUid, int msgId, String msgContent, int type) throws org.apache.thrift.TException
     {
-      send_sendMsg(userId, msgId, msgContent, type);
+      send_sendMsg(userId, toUid, msgId, msgContent, type);
       return recv_sendMsg();
     }
 
-    public void send_sendMsg(int userId, int msgId, String msgContent, int type) throws org.apache.thrift.TException
+    public void send_sendMsg(int userId, int toUid, int msgId, String msgContent, int type) throws org.apache.thrift.TException
     {
       sendMsg_args args = new sendMsg_args();
       args.setUserId(userId);
+      args.setToUid(toUid);
       args.setMsgId(msgId);
       args.setMsgContent(msgContent);
       args.setType(type);
@@ -919,21 +921,23 @@ public class FriendChatThriftRpcService {
       }
     }
 
-    public void sendMsg(int userId, int msgId, String msgContent, int type, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void sendMsg(int userId, int toUid, int msgId, String msgContent, int type, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
       checkReady();
-      sendMsg_call method_call = new sendMsg_call(userId, msgId, msgContent, type, resultHandler, this, ___protocolFactory, ___transport);
+      sendMsg_call method_call = new sendMsg_call(userId, toUid, msgId, msgContent, type, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
     public static class sendMsg_call extends org.apache.thrift.async.TAsyncMethodCall {
       private int userId;
+      private int toUid;
       private int msgId;
       private String msgContent;
       private int type;
-      public sendMsg_call(int userId, int msgId, String msgContent, int type, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public sendMsg_call(int userId, int toUid, int msgId, String msgContent, int type, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.userId = userId;
+        this.toUid = toUid;
         this.msgId = msgId;
         this.msgContent = msgContent;
         this.type = type;
@@ -943,6 +947,7 @@ public class FriendChatThriftRpcService {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("sendMsg", org.apache.thrift.protocol.TMessageType.CALL, 0));
         sendMsg_args args = new sendMsg_args();
         args.setUserId(userId);
+        args.setToUid(toUid);
         args.setMsgId(msgId);
         args.setMsgContent(msgContent);
         args.setType(type);
@@ -1229,7 +1234,7 @@ public class FriendChatThriftRpcService {
 
       public sendMsg_result getResult(I iface, sendMsg_args args) throws org.apache.thrift.TException {
         sendMsg_result result = new sendMsg_result();
-        result.success = iface.sendMsg(args.userId, args.msgId, args.msgContent, args.type);
+        result.success = iface.sendMsg(args.userId, args.toUid, args.msgId, args.msgContent, args.type);
         result.setSuccessIsSet(true);
         return result;
       }
@@ -1878,7 +1883,7 @@ public class FriendChatThriftRpcService {
       }
 
       public void start(I iface, sendMsg_args args, org.apache.thrift.async.AsyncMethodCallback<Integer> resultHandler) throws TException {
-        iface.sendMsg(args.userId, args.msgId, args.msgContent, args.type,resultHandler);
+        iface.sendMsg(args.userId, args.toUid, args.msgId, args.msgContent, args.type,resultHandler);
       }
     }
 
@@ -10692,9 +10697,10 @@ public class FriendChatThriftRpcService {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("sendMsg_args");
 
     private static final org.apache.thrift.protocol.TField USER_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("userId", org.apache.thrift.protocol.TType.I32, (short)1);
-    private static final org.apache.thrift.protocol.TField MSG_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("msgId", org.apache.thrift.protocol.TType.I32, (short)2);
-    private static final org.apache.thrift.protocol.TField MSG_CONTENT_FIELD_DESC = new org.apache.thrift.protocol.TField("msgContent", org.apache.thrift.protocol.TType.STRING, (short)3);
-    private static final org.apache.thrift.protocol.TField TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("type", org.apache.thrift.protocol.TType.I32, (short)4);
+    private static final org.apache.thrift.protocol.TField TO_UID_FIELD_DESC = new org.apache.thrift.protocol.TField("toUid", org.apache.thrift.protocol.TType.I32, (short)2);
+    private static final org.apache.thrift.protocol.TField MSG_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("msgId", org.apache.thrift.protocol.TType.I32, (short)3);
+    private static final org.apache.thrift.protocol.TField MSG_CONTENT_FIELD_DESC = new org.apache.thrift.protocol.TField("msgContent", org.apache.thrift.protocol.TType.STRING, (short)4);
+    private static final org.apache.thrift.protocol.TField TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("type", org.apache.thrift.protocol.TType.I32, (short)5);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -10703,6 +10709,7 @@ public class FriendChatThriftRpcService {
     }
 
     public int userId; // required
+    public int toUid; // required
     public int msgId; // required
     public String msgContent; // required
     public int type; // required
@@ -10710,9 +10717,10 @@ public class FriendChatThriftRpcService {
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       USER_ID((short)1, "userId"),
-      MSG_ID((short)2, "msgId"),
-      MSG_CONTENT((short)3, "msgContent"),
-      TYPE((short)4, "type");
+      TO_UID((short)2, "toUid"),
+      MSG_ID((short)3, "msgId"),
+      MSG_CONTENT((short)4, "msgContent"),
+      TYPE((short)5, "type");
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -10729,11 +10737,13 @@ public class FriendChatThriftRpcService {
         switch(fieldId) {
           case 1: // USER_ID
             return USER_ID;
-          case 2: // MSG_ID
+          case 2: // TO_UID
+            return TO_UID;
+          case 3: // MSG_ID
             return MSG_ID;
-          case 3: // MSG_CONTENT
+          case 4: // MSG_CONTENT
             return MSG_CONTENT;
-          case 4: // TYPE
+          case 5: // TYPE
             return TYPE;
           default:
             return null;
@@ -10776,13 +10786,16 @@ public class FriendChatThriftRpcService {
 
     // isset id assignments
     private static final int __USERID_ISSET_ID = 0;
-    private static final int __MSGID_ISSET_ID = 1;
-    private static final int __TYPE_ISSET_ID = 2;
+    private static final int __TOUID_ISSET_ID = 1;
+    private static final int __MSGID_ISSET_ID = 2;
+    private static final int __TYPE_ISSET_ID = 3;
     private byte __isset_bitfield = 0;
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.USER_ID, new org.apache.thrift.meta_data.FieldMetaData("userId", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+      tmpMap.put(_Fields.TO_UID, new org.apache.thrift.meta_data.FieldMetaData("toUid", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
       tmpMap.put(_Fields.MSG_ID, new org.apache.thrift.meta_data.FieldMetaData("msgId", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
@@ -10799,6 +10812,7 @@ public class FriendChatThriftRpcService {
 
     public sendMsg_args(
       int userId,
+      int toUid,
       int msgId,
       String msgContent,
       int type)
@@ -10806,6 +10820,8 @@ public class FriendChatThriftRpcService {
       this();
       this.userId = userId;
       setUserIdIsSet(true);
+      this.toUid = toUid;
+      setToUidIsSet(true);
       this.msgId = msgId;
       setMsgIdIsSet(true);
       this.msgContent = msgContent;
@@ -10819,6 +10835,7 @@ public class FriendChatThriftRpcService {
     public sendMsg_args(sendMsg_args other) {
       __isset_bitfield = other.__isset_bitfield;
       this.userId = other.userId;
+      this.toUid = other.toUid;
       this.msgId = other.msgId;
       if (other.isSetMsgContent()) {
         this.msgContent = other.msgContent;
@@ -10834,6 +10851,8 @@ public class FriendChatThriftRpcService {
     public void clear() {
       setUserIdIsSet(false);
       this.userId = 0;
+      setToUidIsSet(false);
+      this.toUid = 0;
       setMsgIdIsSet(false);
       this.msgId = 0;
       this.msgContent = null;
@@ -10862,6 +10881,29 @@ public class FriendChatThriftRpcService {
 
     public void setUserIdIsSet(boolean value) {
       __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __USERID_ISSET_ID, value);
+    }
+
+    public int getToUid() {
+      return this.toUid;
+    }
+
+    public sendMsg_args setToUid(int toUid) {
+      this.toUid = toUid;
+      setToUidIsSet(true);
+      return this;
+    }
+
+    public void unsetToUid() {
+      __isset_bitfield = EncodingUtils.clearBit(__isset_bitfield, __TOUID_ISSET_ID);
+    }
+
+    /** Returns true if field toUid is set (has been assigned a value) and false otherwise */
+    public boolean isSetToUid() {
+      return EncodingUtils.testBit(__isset_bitfield, __TOUID_ISSET_ID);
+    }
+
+    public void setToUidIsSet(boolean value) {
+      __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __TOUID_ISSET_ID, value);
     }
 
     public int getMsgId() {
@@ -10944,6 +10986,14 @@ public class FriendChatThriftRpcService {
         }
         break;
 
+      case TO_UID:
+        if (value == null) {
+          unsetToUid();
+        } else {
+          setToUid((Integer)value);
+        }
+        break;
+
       case MSG_ID:
         if (value == null) {
           unsetMsgId();
@@ -10976,6 +11026,9 @@ public class FriendChatThriftRpcService {
       case USER_ID:
         return Integer.valueOf(getUserId());
 
+      case TO_UID:
+        return Integer.valueOf(getToUid());
+
       case MSG_ID:
         return Integer.valueOf(getMsgId());
 
@@ -10998,6 +11051,8 @@ public class FriendChatThriftRpcService {
       switch (field) {
       case USER_ID:
         return isSetUserId();
+      case TO_UID:
+        return isSetToUid();
       case MSG_ID:
         return isSetMsgId();
       case MSG_CONTENT:
@@ -11027,6 +11082,15 @@ public class FriendChatThriftRpcService {
         if (!(this_present_userId && that_present_userId))
           return false;
         if (this.userId != that.userId)
+          return false;
+      }
+
+      boolean this_present_toUid = true;
+      boolean that_present_toUid = true;
+      if (this_present_toUid || that_present_toUid) {
+        if (!(this_present_toUid && that_present_toUid))
+          return false;
+        if (this.toUid != that.toUid)
           return false;
       }
 
@@ -11083,6 +11147,16 @@ public class FriendChatThriftRpcService {
           return lastComparison;
         }
       }
+      lastComparison = Boolean.valueOf(isSetToUid()).compareTo(other.isSetToUid());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetToUid()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.toUid, other.toUid);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
       lastComparison = Boolean.valueOf(isSetMsgId()).compareTo(other.isSetMsgId());
       if (lastComparison != 0) {
         return lastComparison;
@@ -11135,6 +11209,10 @@ public class FriendChatThriftRpcService {
 
       sb.append("userId:");
       sb.append(this.userId);
+      first = false;
+      if (!first) sb.append(", ");
+      sb.append("toUid:");
+      sb.append(this.toUid);
       first = false;
       if (!first) sb.append(", ");
       sb.append("msgId:");
@@ -11205,7 +11283,15 @@ public class FriendChatThriftRpcService {
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
-            case 2: // MSG_ID
+            case 2: // TO_UID
+              if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+                struct.toUid = iprot.readI32();
+                struct.setToUidIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            case 3: // MSG_ID
               if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
                 struct.msgId = iprot.readI32();
                 struct.setMsgIdIsSet(true);
@@ -11213,7 +11299,7 @@ public class FriendChatThriftRpcService {
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
-            case 3: // MSG_CONTENT
+            case 4: // MSG_CONTENT
               if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
                 struct.msgContent = iprot.readString();
                 struct.setMsgContentIsSet(true);
@@ -11221,7 +11307,7 @@ public class FriendChatThriftRpcService {
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
-            case 4: // TYPE
+            case 5: // TYPE
               if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
                 struct.type = iprot.readI32();
                 struct.setTypeIsSet(true);
@@ -11246,6 +11332,9 @@ public class FriendChatThriftRpcService {
         oprot.writeStructBegin(STRUCT_DESC);
         oprot.writeFieldBegin(USER_ID_FIELD_DESC);
         oprot.writeI32(struct.userId);
+        oprot.writeFieldEnd();
+        oprot.writeFieldBegin(TO_UID_FIELD_DESC);
+        oprot.writeI32(struct.toUid);
         oprot.writeFieldEnd();
         oprot.writeFieldBegin(MSG_ID_FIELD_DESC);
         oprot.writeI32(struct.msgId);
@@ -11279,18 +11368,24 @@ public class FriendChatThriftRpcService {
         if (struct.isSetUserId()) {
           optionals.set(0);
         }
-        if (struct.isSetMsgId()) {
+        if (struct.isSetToUid()) {
           optionals.set(1);
         }
-        if (struct.isSetMsgContent()) {
+        if (struct.isSetMsgId()) {
           optionals.set(2);
         }
-        if (struct.isSetType()) {
+        if (struct.isSetMsgContent()) {
           optionals.set(3);
         }
-        oprot.writeBitSet(optionals, 4);
+        if (struct.isSetType()) {
+          optionals.set(4);
+        }
+        oprot.writeBitSet(optionals, 5);
         if (struct.isSetUserId()) {
           oprot.writeI32(struct.userId);
+        }
+        if (struct.isSetToUid()) {
+          oprot.writeI32(struct.toUid);
         }
         if (struct.isSetMsgId()) {
           oprot.writeI32(struct.msgId);
@@ -11306,20 +11401,24 @@ public class FriendChatThriftRpcService {
       @Override
       public void read(org.apache.thrift.protocol.TProtocol prot, sendMsg_args struct) throws org.apache.thrift.TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
-        BitSet incoming = iprot.readBitSet(4);
+        BitSet incoming = iprot.readBitSet(5);
         if (incoming.get(0)) {
           struct.userId = iprot.readI32();
           struct.setUserIdIsSet(true);
         }
         if (incoming.get(1)) {
+          struct.toUid = iprot.readI32();
+          struct.setToUidIsSet(true);
+        }
+        if (incoming.get(2)) {
           struct.msgId = iprot.readI32();
           struct.setMsgIdIsSet(true);
         }
-        if (incoming.get(2)) {
+        if (incoming.get(3)) {
           struct.msgContent = iprot.readString();
           struct.setMsgContentIsSet(true);
         }
-        if (incoming.get(3)) {
+        if (incoming.get(4)) {
           struct.type = iprot.readI32();
           struct.setTypeIsSet(true);
         }

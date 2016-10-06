@@ -100,7 +100,7 @@ service FriendChatThriftRpcService {
      * @param type 消息内容类型
      * @return 返回消息ID
      */
-    i32 sendMsg(1:i32 userId, 2:i32 msgId, 3:string msgContent, 4:i32 type);
+    i32 sendMsg(1:i32 userId, 2:i32 toUid, 3:i32 msgId, 4:string msgContent, 5:i32 type);
 }
 
 
@@ -177,9 +177,9 @@ service AdThriftRpcService {
 
     i32 updateAdCategory(2:string category);
 
-    i32 deleteAdCategory(1:i32 id);
+    i32 deleteAdCategory(1:string id);
 
-    string getAdCategory(2:i32 id);
+    string getAdCategory(2:string id);
 
     string queryAdCategoryByPage(1:map<string, string> paramMap, 2:i32 pageIndex, 3:i32 pageSize);
 }

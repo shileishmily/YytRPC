@@ -54,9 +54,9 @@ public class AdThriftRpcService {
 
     public int updateAdCategory(String category) throws org.apache.thrift.TException;
 
-    public int deleteAdCategory(int id) throws org.apache.thrift.TException;
+    public int deleteAdCategory(String id) throws org.apache.thrift.TException;
 
-    public String getAdCategory(int id) throws org.apache.thrift.TException;
+    public String getAdCategory(String id) throws org.apache.thrift.TException;
 
     public String queryAdCategoryByPage(Map<String,String> paramMap, int pageIndex, int pageSize) throws org.apache.thrift.TException;
 
@@ -78,9 +78,9 @@ public class AdThriftRpcService {
 
     public void updateAdCategory(String category, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
-    public void deleteAdCategory(int id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void deleteAdCategory(String id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
-    public void getAdCategory(int id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getAdCategory(String id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
     public void queryAdCategoryByPage(Map<String,String> paramMap, int pageIndex, int pageSize, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
@@ -269,13 +269,13 @@ public class AdThriftRpcService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "updateAdCategory failed: unknown result");
     }
 
-    public int deleteAdCategory(int id) throws org.apache.thrift.TException
+    public int deleteAdCategory(String id) throws org.apache.thrift.TException
     {
       send_deleteAdCategory(id);
       return recv_deleteAdCategory();
     }
 
-    public void send_deleteAdCategory(int id) throws org.apache.thrift.TException
+    public void send_deleteAdCategory(String id) throws org.apache.thrift.TException
     {
       deleteAdCategory_args args = new deleteAdCategory_args();
       args.setId(id);
@@ -292,13 +292,13 @@ public class AdThriftRpcService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "deleteAdCategory failed: unknown result");
     }
 
-    public String getAdCategory(int id) throws org.apache.thrift.TException
+    public String getAdCategory(String id) throws org.apache.thrift.TException
     {
       send_getAdCategory(id);
       return recv_getAdCategory();
     }
 
-    public void send_getAdCategory(int id) throws org.apache.thrift.TException
+    public void send_getAdCategory(String id) throws org.apache.thrift.TException
     {
       getAdCategory_args args = new getAdCategory_args();
       args.setId(id);
@@ -588,7 +588,7 @@ public class AdThriftRpcService {
       }
     }
 
-    public void deleteAdCategory(int id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void deleteAdCategory(String id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
       checkReady();
       deleteAdCategory_call method_call = new deleteAdCategory_call(id, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -596,8 +596,8 @@ public class AdThriftRpcService {
     }
 
     public static class deleteAdCategory_call extends org.apache.thrift.async.TAsyncMethodCall {
-      private int id;
-      public deleteAdCategory_call(int id, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      private String id;
+      public deleteAdCategory_call(String id, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.id = id;
       }
@@ -620,7 +620,7 @@ public class AdThriftRpcService {
       }
     }
 
-    public void getAdCategory(int id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getAdCategory(String id, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
       checkReady();
       getAdCategory_call method_call = new getAdCategory_call(id, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -628,8 +628,8 @@ public class AdThriftRpcService {
     }
 
     public static class getAdCategory_call extends org.apache.thrift.async.TAsyncMethodCall {
-      private int id;
-      public getAdCategory_call(int id, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      private String id;
+      public getAdCategory_call(String id, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.id = id;
       }
@@ -6665,7 +6665,7 @@ public class AdThriftRpcService {
   public static class deleteAdCategory_args implements org.apache.thrift.TBase<deleteAdCategory_args, deleteAdCategory_args._Fields>, java.io.Serializable, Cloneable, Comparable<deleteAdCategory_args>   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("deleteAdCategory_args");
 
-    private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.I32, (short)1);
+    private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.STRING, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -6673,7 +6673,7 @@ public class AdThriftRpcService {
       schemes.put(TupleScheme.class, new deleteAdCategory_argsTupleSchemeFactory());
     }
 
-    public int id; // required
+    public String id; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -6734,13 +6734,11 @@ public class AdThriftRpcService {
     }
 
     // isset id assignments
-    private static final int __ID_ISSET_ID = 0;
-    private byte __isset_bitfield = 0;
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(deleteAdCategory_args.class, metaDataMap);
     }
@@ -6749,19 +6747,19 @@ public class AdThriftRpcService {
     }
 
     public deleteAdCategory_args(
-      int id)
+      String id)
     {
       this();
       this.id = id;
-      setIdIsSet(true);
     }
 
     /**
      * Performs a deep copy on <i>other</i>.
      */
     public deleteAdCategory_args(deleteAdCategory_args other) {
-      __isset_bitfield = other.__isset_bitfield;
-      this.id = other.id;
+      if (other.isSetId()) {
+        this.id = other.id;
+      }
     }
 
     public deleteAdCategory_args deepCopy() {
@@ -6770,31 +6768,31 @@ public class AdThriftRpcService {
 
     @Override
     public void clear() {
-      setIdIsSet(false);
-      this.id = 0;
+      this.id = null;
     }
 
-    public int getId() {
+    public String getId() {
       return this.id;
     }
 
-    public deleteAdCategory_args setId(int id) {
+    public deleteAdCategory_args setId(String id) {
       this.id = id;
-      setIdIsSet(true);
       return this;
     }
 
     public void unsetId() {
-      __isset_bitfield = EncodingUtils.clearBit(__isset_bitfield, __ID_ISSET_ID);
+      this.id = null;
     }
 
     /** Returns true if field id is set (has been assigned a value) and false otherwise */
     public boolean isSetId() {
-      return EncodingUtils.testBit(__isset_bitfield, __ID_ISSET_ID);
+      return this.id != null;
     }
 
     public void setIdIsSet(boolean value) {
-      __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __ID_ISSET_ID, value);
+      if (!value) {
+        this.id = null;
+      }
     }
 
     public void setFieldValue(_Fields field, Object value) {
@@ -6803,7 +6801,7 @@ public class AdThriftRpcService {
         if (value == null) {
           unsetId();
         } else {
-          setId((Integer)value);
+          setId((String)value);
         }
         break;
 
@@ -6813,7 +6811,7 @@ public class AdThriftRpcService {
     public Object getFieldValue(_Fields field) {
       switch (field) {
       case ID:
-        return Integer.valueOf(getId());
+        return getId();
 
       }
       throw new IllegalStateException();
@@ -6845,12 +6843,12 @@ public class AdThriftRpcService {
       if (that == null)
         return false;
 
-      boolean this_present_id = true;
-      boolean that_present_id = true;
+      boolean this_present_id = true && this.isSetId();
+      boolean that_present_id = true && that.isSetId();
       if (this_present_id || that_present_id) {
         if (!(this_present_id && that_present_id))
           return false;
-        if (this.id != that.id)
+        if (!this.id.equals(that.id))
           return false;
       }
 
@@ -6901,7 +6899,11 @@ public class AdThriftRpcService {
       boolean first = true;
 
       sb.append("id:");
-      sb.append(this.id);
+      if (this.id == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.id);
+      }
       first = false;
       sb.append(")");
       return sb.toString();
@@ -6922,8 +6924,6 @@ public class AdThriftRpcService {
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
-        // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
-        __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
       } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
@@ -6949,8 +6949,8 @@ public class AdThriftRpcService {
           }
           switch (schemeField.id) {
             case 1: // ID
-              if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-                struct.id = iprot.readI32();
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.id = iprot.readString();
                 struct.setIdIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -6971,9 +6971,11 @@ public class AdThriftRpcService {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
-        oprot.writeFieldBegin(ID_FIELD_DESC);
-        oprot.writeI32(struct.id);
-        oprot.writeFieldEnd();
+        if (struct.id != null) {
+          oprot.writeFieldBegin(ID_FIELD_DESC);
+          oprot.writeString(struct.id);
+          oprot.writeFieldEnd();
+        }
         oprot.writeFieldStop();
         oprot.writeStructEnd();
       }
@@ -6997,7 +6999,7 @@ public class AdThriftRpcService {
         }
         oprot.writeBitSet(optionals, 1);
         if (struct.isSetId()) {
-          oprot.writeI32(struct.id);
+          oprot.writeString(struct.id);
         }
       }
 
@@ -7006,7 +7008,7 @@ public class AdThriftRpcService {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.id = iprot.readI32();
+          struct.id = iprot.readString();
           struct.setIdIsSet(true);
         }
       }
@@ -7371,7 +7373,7 @@ public class AdThriftRpcService {
   public static class getAdCategory_args implements org.apache.thrift.TBase<getAdCategory_args, getAdCategory_args._Fields>, java.io.Serializable, Cloneable, Comparable<getAdCategory_args>   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getAdCategory_args");
 
-    private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.I32, (short)2);
+    private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.STRING, (short)2);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -7379,7 +7381,7 @@ public class AdThriftRpcService {
       schemes.put(TupleScheme.class, new getAdCategory_argsTupleSchemeFactory());
     }
 
-    public int id; // required
+    public String id; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -7440,13 +7442,11 @@ public class AdThriftRpcService {
     }
 
     // isset id assignments
-    private static final int __ID_ISSET_ID = 0;
-    private byte __isset_bitfield = 0;
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getAdCategory_args.class, metaDataMap);
     }
@@ -7455,19 +7455,19 @@ public class AdThriftRpcService {
     }
 
     public getAdCategory_args(
-      int id)
+      String id)
     {
       this();
       this.id = id;
-      setIdIsSet(true);
     }
 
     /**
      * Performs a deep copy on <i>other</i>.
      */
     public getAdCategory_args(getAdCategory_args other) {
-      __isset_bitfield = other.__isset_bitfield;
-      this.id = other.id;
+      if (other.isSetId()) {
+        this.id = other.id;
+      }
     }
 
     public getAdCategory_args deepCopy() {
@@ -7476,31 +7476,31 @@ public class AdThriftRpcService {
 
     @Override
     public void clear() {
-      setIdIsSet(false);
-      this.id = 0;
+      this.id = null;
     }
 
-    public int getId() {
+    public String getId() {
       return this.id;
     }
 
-    public getAdCategory_args setId(int id) {
+    public getAdCategory_args setId(String id) {
       this.id = id;
-      setIdIsSet(true);
       return this;
     }
 
     public void unsetId() {
-      __isset_bitfield = EncodingUtils.clearBit(__isset_bitfield, __ID_ISSET_ID);
+      this.id = null;
     }
 
     /** Returns true if field id is set (has been assigned a value) and false otherwise */
     public boolean isSetId() {
-      return EncodingUtils.testBit(__isset_bitfield, __ID_ISSET_ID);
+      return this.id != null;
     }
 
     public void setIdIsSet(boolean value) {
-      __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __ID_ISSET_ID, value);
+      if (!value) {
+        this.id = null;
+      }
     }
 
     public void setFieldValue(_Fields field, Object value) {
@@ -7509,7 +7509,7 @@ public class AdThriftRpcService {
         if (value == null) {
           unsetId();
         } else {
-          setId((Integer)value);
+          setId((String)value);
         }
         break;
 
@@ -7519,7 +7519,7 @@ public class AdThriftRpcService {
     public Object getFieldValue(_Fields field) {
       switch (field) {
       case ID:
-        return Integer.valueOf(getId());
+        return getId();
 
       }
       throw new IllegalStateException();
@@ -7551,12 +7551,12 @@ public class AdThriftRpcService {
       if (that == null)
         return false;
 
-      boolean this_present_id = true;
-      boolean that_present_id = true;
+      boolean this_present_id = true && this.isSetId();
+      boolean that_present_id = true && that.isSetId();
       if (this_present_id || that_present_id) {
         if (!(this_present_id && that_present_id))
           return false;
-        if (this.id != that.id)
+        if (!this.id.equals(that.id))
           return false;
       }
 
@@ -7607,7 +7607,11 @@ public class AdThriftRpcService {
       boolean first = true;
 
       sb.append("id:");
-      sb.append(this.id);
+      if (this.id == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.id);
+      }
       first = false;
       sb.append(")");
       return sb.toString();
@@ -7628,8 +7632,6 @@ public class AdThriftRpcService {
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
-        // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
-        __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
       } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
@@ -7655,8 +7657,8 @@ public class AdThriftRpcService {
           }
           switch (schemeField.id) {
             case 2: // ID
-              if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-                struct.id = iprot.readI32();
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.id = iprot.readString();
                 struct.setIdIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -7677,9 +7679,11 @@ public class AdThriftRpcService {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
-        oprot.writeFieldBegin(ID_FIELD_DESC);
-        oprot.writeI32(struct.id);
-        oprot.writeFieldEnd();
+        if (struct.id != null) {
+          oprot.writeFieldBegin(ID_FIELD_DESC);
+          oprot.writeString(struct.id);
+          oprot.writeFieldEnd();
+        }
         oprot.writeFieldStop();
         oprot.writeStructEnd();
       }
@@ -7703,7 +7707,7 @@ public class AdThriftRpcService {
         }
         oprot.writeBitSet(optionals, 1);
         if (struct.isSetId()) {
-          oprot.writeI32(struct.id);
+          oprot.writeString(struct.id);
         }
       }
 
@@ -7712,7 +7716,7 @@ public class AdThriftRpcService {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.id = iprot.readI32();
+          struct.id = iprot.readString();
           struct.setIdIsSet(true);
         }
       }
